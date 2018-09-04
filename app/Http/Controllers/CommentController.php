@@ -13,7 +13,9 @@ class CommentController extends Controller
 
 //        auth()->user()->comments()->save($comment);
 
-        //@todo: Add validation!
+        $this->validate($request, [
+            'comment' => 'required',
+        ]);
 
         auth()->user()->comment($post, $request->get('comment'));
 
